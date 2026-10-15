@@ -23,7 +23,18 @@ const note=document.querySelector('#plan-note');
 const status=document.querySelector('#save-status');
 let storageWorks=true;
 try{const saved=JSON.parse(localStorage.getItem(storageKey)||'null');if(saved&&typeof saved==='object'){tasks.forEach(t=>t.checked=saved.tasks?.[t.dataset.task]===true);if(typeof saved.note==='string')note.value=saved.note.slice(0,2000);}}catch{storageWorks=false;}
-function updateProgress(){const done=tasks.filter(t=>t.checked).length;document.querySelector('#progress-text').textContent=`${done} / ${tasks.length} lépés kész`;document.querySelector('#progress-percent').textContent=`${Math.round(done/tasks.length*100)}%`;document.querySelector('#progress-fill').style.width=`${done/tasks.length*100}%`;document.querySelector('[role="progressbar"]').setAttribute('aria-valuenow',done);}
+function updateProgress(){
+  const done=tasks.filter(t=>t.checked).length;
+  const percentage=done/tasks.length*100;
+  document.querySelector('#progress-text').textContent=`${done} / ${tasks.length} lépés kész`;
+  document.querySelector('#progress-percent').textContent=`${Math.round(percentage)}%`;
+  document.querySelector('#progress-fill').style.width=`${percentage}%`;
+  document.querySelector('[role="progressbar"]').setAttribute('aria-valuenow',done);
+  const ring=document.querySelector('.progress-ring');
+  if(ring)ring.style.setProperty('--progress',`${percentage}%`);
+  const message=document.querySelector('#progress-message');
+  if(message)message.textContent=done===0?'Kezdd az első lépéssel.':done===tasks.length?'Készen állsz az indulásra.':'Már úton vagy.';
+}
 function save(){updateProgress();try{localStorage.setItem(storageKey,JSON.stringify({tasks:Object.fromEntries(tasks.map(t=>[t.dataset.task,t.checked])),note:note.value}));storageWorks=true;status.textContent='Mentve ezen a böngészőn.';}catch{storageWorks=false;status.textContent='Az automatikus mentés nem elérhető. A tervedet letöltheted.';}}
 tasks.forEach(task=>task.addEventListener('change',save));note.addEventListener('input',save);
 const resetButton=document.querySelector('#reset-plan');
