@@ -1,36 +1,43 @@
 # Corvinus Iránytű
 
-Önálló magyar hallgatói tárgyfelvételi segédoldal: gyakorlati útvonalak, saját félévterv és hivatalos hivatkozások, áttekinthető asztali és mobilfelületen.
+A kék–arany–fehér újratervezés GitHub Pages-változata.
 
-Nyilvános oldal: https://mkristof64.github.io/corvinus-iranytu/
+Magyar hallgatói tárgyfelvételi segédoldal, a KurzusKáosz Kft. projektje.
 
-## Funkciók
+- GitHub Pages: https://mkristof64.github.io/corvinus-iranytu/
 
-- Négy helyzethez háromlépéses gyakorlati útmutató, billentyűzettel is kezelhető választóval.
-- Hatpontos teendőlista, megjegyzés, böngészőben történő helyi mentés és TXT-export.
-- Ellenőrzött hivatalos Corvinus-hivatkozások és külön jelölt fejlesztési ötletek.
-- Mobilon is használható felület, csökkentett mozgás és látható billentyűzetfókusz.
-- A lista törlése előtt megerősítés védi a mentett pipákat és jegyzeteket.
 
-## Megjelenés
+## Felépítés
 
-A jelenlegi [Corvinus arculati kézikönyv](https://www.uni-corvinus.hu/downloads/aj00.1fej3x3/corvinus-university-design-guidelines.pdf) 23. oldalán szereplő másodlagos kék paletta: sötétkék `#002332`, kék `#32B4E6`, világoskék `#CDF0FF`. A saját iránytűjelzés nem egyetemi logó. Az oldal független hallgatói segédlet, nem hivatalos egyetemi szolgáltatás.
+Három közvetlenül hivatkozható, böngésző-visszalépéssel is használható nézet:
 
-A felület a hallgatói feladatok sorrendjét követi. A fehér fejléc és a halványkék nyitófelület röviden bemutatja az oldal célját; a sötétkék címet kék tónusú épületfotó és saját SVG-iránytű egészíti ki. Egy háromrészes gyorsindító vezet a segítséghez, a félévtervhez és a hivatalos felületekhez.
+- `#utmutato`: háromállomásos tárgyfelvételi folyamat és négy gyakori elakadás háromlépéses útmutatója.
+- `#tervem`: hatpontos ellenőrzőlista, saját jegyzet (legfeljebb 2000 karakter), TXT-letöltés és megerősített törlés.
+- `#linktar`: négy hivatalos egyetemi céloldal, a használatuk céljával.
 
-A helyzetválasztó mellett háromlépéses útmutató jelenik meg. A félévterv elején a haladás látható, ezt követi a tárgyfelvétel előtti és utáni teendőlista, valamint a jegyzet és a letöltés. A hivatalos egyetemi felületek jól áttekinthető sorokban szerepelnek, rövid célleírással. Mobilon a tartalom egy oszlopban, a haladás–teendők–jegyzet sorrendet megtartva jelenik meg. Az animációk követik a csökkentett mozgás beállítását.
+A `#folyamat` és `#elakadtam` közvetlenül az útmutató megfelelő részére visz. A korábbi `#hasznos` hivatkozás a Linktárra mutat.
 
-Fotó: [Fred Romero, Budapest – Budapesti Corvinus Egyetem](https://www.flickr.com/photos/129231073@N06/26728913049/), 2017. [Wikimedia Commons forrás](https://commons.wikimedia.org/wiki/File:Budapest_-_Budapesti_Corvinus_Egyetem.jpg), [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/). Az `assets/corvinus-campus.jpg` átméretezett változat; az oldalon képkivágással és CSS-színmódosítással jelenik meg. A kredit az oldal láblécében is szerepel.
+## Vizuális rendszer
 
-Statikus HTML/CSS/JavaScript; a publikálandó fájlok a tároló gyökérkönyvtárában találhatók. Az oldal nem kapcsolódik Neptun-adatokhoz, nem küld üzenetet és nem tartalmaz kutatási adatállításokat. A Google Fonts kivételével nincs külső futásidejű függősége; hálózati betűtípus nélkül rendszerbetűvel működik.
+A felhasználó által kért kék–arany–fehér paletta: mélykék `#102d50`, arany `#d8b46b`, fehér. A saját iránytűjelzés nem egyetemi logó. Manrope címsorok, DM Sans törzsszöveg és Playfair Display kurzív kiemelés. Hálózati betűkészletek nélkül rendszerbetűkkel is használható.
+
+Fehér nyitófelület, kék tónusú campusfotó, arany aktív állapotok, áttekinthető folyamatválasztó. A saját terv és a linktár külön munkafelületet kapott. Mobilon az elrendezés egy oszlopra vált.
+
+## Adatok és működés
+
+Statikus HTML/CSS/JavaScript. A mentés helyi `localStorage`-ot használ, a korábbi `corvinus-iranytu-plan-v1` kulcs és feladatazonosítók megmaradtak. Nem küld tanulmányi vagy jegyzetadatot szerverre. A checklist készültsége kizárólag a saját teendőket jelzi, nem sikeres Neptun-tárgyfelvételt.
+
+Az oldal független hallgatói segédlet; nem az egyetem hivatalos szolgáltatása és nincs Neptun-integrációja. A lábléc fejlesztési ötletei kifejezetten koncepcióként szerepelnek.
 
 ## Hivatalos források
 
-Ellenőrzés dátuma: 2026-10-15.
+Ellenőrzés: 2026. október 18.
 
 - https://www.uni-corvinus.hu/post/hir/targyfelvetel-2026/
 - https://www.uni-corvinus.hu/ona/hallgatoi-tanulmanyi-ugyek/ugyintezes/
 - https://www.uni-corvinus.hu/ona/hallgatoi-tanulmanyi-ugyek/kepzesi-programok/
 - https://neptun3r.web.uni-corvinus.hu/
 
-Az útmutatók általános tervezési javaslatok, az egyedi ügyek eljárási feltételeit a hivatalos egyetemi felületeken kell ellenőrizni.
+A javaslatok általános tervezési segítséget adnak. Az eljárásokat, jogosultságokat és határidőket mindig a saját képzés aktuális tájékoztatója alapján kell ellenőrizni.
+
+Fotó: [Fred Romero](https://www.flickr.com/photos/129231073@N06/26728913049/), [Budapest – Budapesti Corvinus Egyetem, Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Budapest_-_Budapesti_Corvinus_Egyetem.jpg), [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/). Átméretezve, képkivágással és CSS-színmódosítással.
